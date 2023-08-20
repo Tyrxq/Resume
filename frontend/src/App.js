@@ -11,14 +11,14 @@ import Resume from './Pages/Resume';
 function App() {
   return (
     <div className="App">
-      <Sidebar/>
       <Router>
+        <Sidebar/>
         <Routes>
           <Route path="/" element={<Home/>} />
           <Route path="/resume" element={<Resume/>} />
         </Routes>
       </Router>
-      <Home/>
+      
 
      
        
