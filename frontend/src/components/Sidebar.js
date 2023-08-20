@@ -1,4 +1,6 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import './Sidebar.css';
 
 const Sidebar = () => {
   return (
@@ -9,24 +11,26 @@ const Sidebar = () => {
         </div>
         <div className="offcanvas-body px-0">
             <ul className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-start" id="menu">
+
                 <li className="nav-item">
-                    <a href="/#" className="nav-link text-truncate d-inline-flex  ">
+                    <Link to="/" className= "nav-link text-truncate d-inline-flex">
                         <span class=" fs-10 material-symbols-outlined ms-1 ">house</span>
-                        <span className="ms-1 d-none d-sm-inline">Home</span>
-                    </a>
+                            <span className="ms-1 d-none d-sm-inline">Home</span>
+                    </Link>
                 </li>
+                
                 <li>
-                    <a href="/resume" className="nav-link text-truncate d-inline-flex ">
+                    <Link to="/resume" className="nav-link text-truncate d-inline-flex ">
                         <span class=" fs-10 material-symbols-outlined ms-1 ">news</span>
                         <span className="ms-1 d-none d-sm-inline">Resume</span> 
-                    </a>
+                    </Link>
                 </li>
             
                 <li className="dropdown">
-                    <a href="/#" className="nav-link dropdown-toggle  text-truncate d-inline-flex " id="dropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                    <Link to="/"className="nav-link dropdown-toggle  text-truncate d-inline-flex " id="dropdown" data-bs-toggle="dropdown" aria-expanded="false">
                         <span class=" fs-10 material-symbols-outlined ms-1 ">Folder</span>
                         <span className="ms-1 d-none d-sm-inline">Portfolio</span> 
-                    </a>
+                    </Link>
                     <ul className="dropdown-menu text-small shadow" aria-labelledby="dropdown">
                         <li><a className="dropdown-item" href="/#">New project...</a></li>
                         <li><a className="dropdown-item" href="/#">Settings</a></li>
@@ -38,10 +42,10 @@ const Sidebar = () => {
                     </ul>
                 </li>
                 <li>
-                    <a href="/#" className="nav-link text-truncate d-inline-flex ">
+                    <Link to="/"className="nav-link text-truncate d-inline-flex ">
                         <span class=" fs-10 material-symbols-outlined ms-1 ">contact_page</span>
                         <span className="ms-1 d-none d-sm-inline">Contact</span> 
-                    </a>
+                    </Link>
                 </li>
              
             </ul>
