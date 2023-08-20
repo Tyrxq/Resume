@@ -36,3 +36,17 @@
     transform: rotate(360deg);
   }
 }
+
+.menuIcon{
+  border-color:black!important;
+  background:linear-gradient(#4169e1,#000000) !important;
+  color: #d7ba86 !important;
+}
+
+.menuIcon:hover{
+  background:linear-gradient(#4169e1,#333333) !important;
+}
+
+.menuIcon:active{
+  background:linear-gradient(white,white) !important;
+}
