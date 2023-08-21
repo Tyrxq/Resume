@@ -3,16 +3,22 @@
 }
 
 
-.menuIcon{
-  border-color:black!important;
-  background:linear-gradient(#4169e1,#000000) !important;
+.menuIcon:hover{
+  border-color:#d7ba86!important;
+ 
   color: #d7ba86 !important;
 }
 
-.menuIcon:hover{
+.menuIcon{
   background:linear-gradient(#4169e1,#333333) !important;
+  border-color:white!important;
+ 
+  color: white !important;
 }
 
 .menuIcon:active{
   background:linear-gradient(white,white) !important;
+  border-color:#d7ba86!important;
+ 
+  color: #d7ba86 !important;
 }
