@@ -1,0 +1,20 @@
+
+.menu-body{
+   
+    background: linear-gradient(45deg,#000000,#4169e1 50%,white 20%) !important;
+    
+}
+
+.menu-links{
+    color:#d7ba86 !important
+}
+
+.ul-body{
+   
+    background: linear-gradient(45deg,#000000,#4169e1 60%,white 20%) !important;
+    
+}
+
+.active-link{
+    
+}
