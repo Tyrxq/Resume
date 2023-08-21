@@ -1,8 +1,10 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link,useParams } from 'react-router-dom'
 import './Sidebar.css';
 
 const Sidebar = () => {
+   let { id } = useParams();
+  
   return (
     <div className="offcanvas offcanvas-start w-25" tabindex="-1" id="offcanvas" data-bs-keyboard="false" data-bs-backdrop="false">
         <div className="offcanvas-header d-flex justify-content-end">
@@ -12,8 +14,8 @@ const Sidebar = () => {
         <div className="offcanvas-body px-0 menu-body">
             <ul className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-start" id="menu">
 
-                <li className="nav-item">
-                    <Link to="/" className= "nav-link text-truncate d-inline-flex menu-links">
+                <li className= "nav-item active-link">
+                    <Link to="/" className= "nav-link text-truncate d-inline-flex menu-links active-link">
                         <span class=" fs-10 material-symbols-outlined ms-1 ">house</span>
                             <span className="ms-1 d-none d-sm-inline">Home</span>
                     </Link>

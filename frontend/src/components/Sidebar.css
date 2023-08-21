@@ -1,8 +1,6 @@
 
 .menu-body{
-   
     background: linear-gradient(45deg,#000000,#4169e1 50%,white 20%) !important;
-    
 }
 
 .menu-links{
@@ -16,5 +14,14 @@
 }
 
 .active-link{
+    background-color: #d7ba86 !important;
+    color: white!important;
     
+}
+
+
+.nav-item{
+    display: flex !important;
+    width: 100% !important;
+    justify-content: flex-start !important;
 }
