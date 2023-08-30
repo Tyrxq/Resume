@@ -10,8 +10,9 @@
 }
 
 .menuIcon{
-  background:linear-gradient(#4169e1,#333333) !important;
+  background:linear-gradient(rgba(65, 105, 225, .85),rgba(0, 0, 0, .7)) !important;
   border-color:white!important;
+  backdrop-filter: blur(1.4px);
  
   color: white !important;
 }

@@ -14,6 +14,12 @@ function App() {
     <div className="App">
       <Router>
         <Sidebar/>
+        <nav class="d-flex fixed-top justify-content-end p-2">
+          <button className="btn float-right menuIcon" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" >
+            <span className="material-symbols-outlined">arrow_forward_ios</span>
+          </button>
+        </nav>
+       
         <Routes>
           <Route path="/" element={<Home/>} />
           <Route path="/resume" element={<Resume/>} />
