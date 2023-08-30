@@ -1,6 +1,23 @@
 
 .menu-body{
-    background: linear-gradient(45deg,#000000,#4169e1 50%,white 20%) !important;
+    background: linear-gradient(45deg,#000000,#4169e1 50%,rgba(255, 255, 255, 0.2) 20%) !important;
+    box-shadow: 0 0px 30px rgba(0, 0, 0, 0.1)!important;
+    backdrop-filter: blur(5px)!important;
+    -webkit-backdrop-filter: blur(5px)!important;
+    
+    z-index: 1;
+    min-width: 60px;
+    overflow: hidden;
+}
+
+.menu-header{
+    background: rgba(255, 255, 255, 0.2)!important;
+   
+    box-shadow: 0 0px 30px rgba(0, 0, 0, 0.1)!important;
+    backdrop-filter: blur(5px)!important;
+    -webkit-backdrop-filter: blur(5px)!important;
+  
+    min-width: 60px;
 }
 
 .menu-links{
@@ -9,7 +26,7 @@
 
 .ul-body{
    
-    background: linear-gradient(45deg,#000000,#4169e1 60%,white 20%) !important;
+    background: linear-gradient(45deg,#000000,#4169e1 50%,rgba(255, 255, 255, 0.2) 20%) !important;
     
 }
 

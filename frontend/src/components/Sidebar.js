@@ -11,8 +11,8 @@ const Sidebar = () => {
    } 
   
   return (
-    <div className="offcanvas offcanvas-start w-25" tabindex="-1" id="offcanvas" data-bs-keyboard="false" data-bs-backdrop="false">
-        <div className="offcanvas-header d-flex justify-content-end">
+    <div className="offcanvas offcanvas-start w-25 menu-header" tabindex="-1" id="offcanvas" data-bs-keyboard="false" data-bs-backdrop="false">
+        <div className="offcanvas-header d-flex justify-content-end menu-header">
            
             <button type="button" className="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
