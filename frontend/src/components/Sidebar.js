@@ -1,9 +1,14 @@
 import React from 'react'
-import { Link,useParams } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import './Sidebar.css';
 
 const Sidebar = () => {
-   let { id } = useParams();
+   const location = useLocation();
+
+
+   function activeLink(link){
+    return location.pathname === link ? "nav-link text-truncate d-inline-flex menu-links active-link": "nav-link text-truncate d-inline-flex menu-links";
+   } 
   
   return (
     <div className="offcanvas offcanvas-start w-25" tabindex="-1" id="offcanvas" data-bs-keyboard="false" data-bs-backdrop="false">
@@ -14,15 +19,15 @@ const Sidebar = () => {
         <div className="offcanvas-body px-0 menu-body">
             <ul className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-start" id="menu">
 
-                <li className= "nav-item active-link">
-                    <Link to="/" className= "nav-link text-truncate d-inline-flex menu-links active-link">
+                <li className= "nav-item ">
+                    <Link to="/" className= {activeLink("/")}>
                         <span class=" fs-10 material-symbols-outlined ms-1 ">house</span>
                             <span className="ms-1 d-none d-sm-inline">Home</span>
                     </Link>
                 </li>
                 
-                <li>
-                    <Link to="/resume" className="nav-link text-truncate d-inline-flex menu-links ">
+                <li className= "nav-item ">
+                    <Link to="/resume" className={activeLink("/resume")}>
                         <span class=" fs-10 material-symbols-outlined ms-1 ">news</span>
                         <span className="ms-1 d-none d-sm-inline">Resume</span> 
                     </Link>
@@ -43,8 +48,8 @@ const Sidebar = () => {
                         <li><a className="dropdown-item" href="/#">Sign out</a></li>
                     </ul>
                 </li>
-                <li>
-                    <Link to="/"className="nav-link text-truncate d-inline-flex menu-links ">
+                <li className = "nav-item ">
+                    <Link to="/contact"className={activeLink("/contact")}>
                         <span class=" fs-10 material-symbols-outlined ms-1 ">contact_page</span>
                         <span className="ms-1 d-none d-sm-inline">Contact</span> 
                     </Link>
