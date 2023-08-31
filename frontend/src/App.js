@@ -8,17 +8,14 @@ import Sidebar from './components/Sidebar';
 import Home from './Pages/Home';
 import Resume from './Pages/Resume';
 import Contact from './Pages/Contact';
+import SidebarButton from './components/SidebarButton';
 
 function App() {
   return (
     <div className="App">
       <Router>
         <Sidebar/>
-        <nav class="d-flex fixed-top justify-content-end p-2">
-          <button className="btn float-right menuIcon" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" >
-            <span className="material-symbols-outlined">arrow_forward_ios</span>
-          </button>
-        </nav>
+        <SidebarButton/>
        
         <Routes>
           <Route path="/" element={<Home/>} />

@@ -14,7 +14,7 @@ const Sidebar = () => {
     <div className="offcanvas offcanvas-start w-25 menu-header" tabindex="-1" id="offcanvas" data-bs-scroll="true" data-bs-keyboard="true" data-bs-backdrop="false" >
         <div className="offcanvas-header d-flex justify-content-end menu-header">
            
-            <button type="button" className="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+           
         </div>
         <div className="offcanvas-body px-0 menu-body">
             <ul className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-start" id="menu">
