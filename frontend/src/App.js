@@ -8,6 +8,7 @@ import Sidebar from './components/Sidebar';
 import Home from './Pages/Home';
 import Resume from './Pages/Resume';
 import Contact from './Pages/Contact';
+import Portfolio from './Pages/Portfolio';
 import SidebarButton from './components/SidebarButton';
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route path="/" element={<Home/>} />
           <Route path="/resume" element={<Resume/>} />
           <Route path="/contact" element={<Contact/>} />
+          <Route path="/portfolio" element={<Portfolio/>} />
           
         </Routes>
       </Router>

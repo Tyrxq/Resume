@@ -33,20 +33,11 @@ const Sidebar = () => {
                     </Link>
                 </li>
             
-                <li className="dropdown">
-                    <Link to="/"className="nav-link dropdown-toggle  text-truncate d-inline-flex menu-links" id="dropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                <li className="nav-item">
+                    <Link to="/portfolio" className={activeLink("/portfolio")}>
                         <span class=" fs-10 material-symbols-outlined ms-1 ">Folder</span>
                         <span className="ms-1 d-none d-sm-inline">Portfolio</span> 
                     </Link>
-                    <ul className="dropdown-menu text-small shadow" aria-labelledby="dropdown">
-                        <li><a className="dropdown-item" href="/#">New project...</a></li>
-                        <li><a className="dropdown-item" href="/#">Settings</a></li>
-                        <li><a className="dropdown-item" href="/#">Profile</a></li>
-                        <li>
-                            <hr className="dropdown-divider"/>
-                        </li>
-                        <li><a className="dropdown-item" href="/#">Sign out</a></li>
-                    </ul>
                 </li>
                 <li className = "nav-item ">
                     <Link to="/contact"className={activeLink("/contact")}>
