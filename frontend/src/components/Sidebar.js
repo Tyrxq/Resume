@@ -11,7 +11,7 @@ const Sidebar = () => {
    } 
   
   return (
-    <div className="offcanvas offcanvas-start w-25 menu-header" tabindex="-1" id="offcanvas" data-bs-scroll="true" data-bs-keyboard="true" data-bs-backdrop="false" >
+    <div className="offcanvas offcanvas-start w-25 h-100 menu-header" tabindex="-1" id="offcanvas" data-bs-scroll="true" data-bs-keyboard="true" data-bs-backdrop="false" >
         <div className="offcanvas-header d-flex justify-content-end menu-header">
            
            
