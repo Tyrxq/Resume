@@ -6,7 +6,7 @@ import {Canvas, useFrame} from "@react-three/fiber";
 
 const Cube = () => {
   const meshRef = useRef(null);
-  const [rotate,setRotate] = useState(false);
+  const [rotate,setRotate] = useState(true);
 
   useFrame(() => {
   if(!meshRef.current){
