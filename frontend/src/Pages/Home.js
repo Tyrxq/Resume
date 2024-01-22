@@ -4,17 +4,20 @@ import {Canvas, useFrame} from "@react-three/fiber";
 import {  OrbitControls } from '@react-three/drei';
 
 
-const Cube = ({position, color}) => {
+const Cube = ({position, color, rotate, setRotate}) => {
   const meshRef = useRef(null);
-  const [rotate,setRotate] = useState(false);
+  
 
   useFrame(() => {
   if(!meshRef.current){
       return;
     }
   if(rotate){
+    //const delta = meshRef.current.position.y + 0.0001;
+    
     meshRef.current.rotation.x += 0.01;
     //meshRef.current.rotation.y += 0.01;
+    //meshRef.current.position.y = 7 * Math.sin(delta) + 3
   }
    
   });
@@ -29,24 +32,36 @@ const Cube = ({position, color}) => {
 
 }
 
+const CubeMatrix = ({position,color,space}) => {
+
+  const [x,y,z] = position;
+  const [rotate,setRotate] = useState(false);
+  return(
+    <group>
+      <Cube position ={position} color={color} rotate={rotate} setRotate={setRotate}/>
+      <Cube position={[x,y+space,z]} color={color} rotate={rotate} setRotate={setRotate}/>
+      <Cube position={[x+space,y,z]} color={"blue"} rotate={rotate} setRotate={setRotate}/>
+      <Cube position={[x,y,z+space]} color={"red"} rotate={rotate} setRotate={setRotate}/>
+      <Cube position={[x+space,y,z+space]} color={"pink"} rotate={rotate} setRotate={setRotate}/>
+      <Cube position={[x+space,y+space,z+space]} color={"black"} rotate={rotate} setRotate={setRotate}/>
+      <Cube position={[x+space,y+space,z]} color={"yellow"} rotate={rotate} setRotate={setRotate}/>
+      <Cube position={[x,y+space,z+space]} color={"purple"} rotate={rotate} setRotate={setRotate}/>
+    </group>
+  )
+}
+
 const Home = () => {
   
   return (
     <div className = "canvas">
-       <Canvas camera = {{ position: [1.5,1.5,1.5],fov:90}}>
+       <Canvas camera = {{ position: [5.5,5.5,5.5],fov:90}}>
           <ambientLight/>
           <pointLight position={[10,0,30]}/>
           <OrbitControls/>
           <group>
-            <Cube/>
-            <Cube position={[0,3,0]} color={"green"}/>
-            <Cube position={[3,0,0]} color={"blue"}/>
-            <Cube position={[0,0,3]} color={"red"}/>
-            <Cube position={[3,0,3]} color={"pink"}/>
-            <Cube position={[3,3,3]} color={"black"}/>
-            <Cube position={[3,3,0]} color={"yellow"}/>
-            <Cube position={[0,3,3]} color={"purple"}/>
+            <CubeMatrix position={[0,0,0]} space={3}/>
           </group>
+          
        </Canvas>
   </div>
   )
