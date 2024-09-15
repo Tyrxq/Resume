@@ -13,10 +13,11 @@ const Sidebar = () => {
   //create break points for backround linear gradient 
   //rework sidebar-button
   return (
-    <nav className='navbar navbar-expand-md navbar-light bg-light'>    
+    <nav className='navbar navbar-expand-md navbar-light bg-light'> 
+           
         <div className="offcanvas offcanvas-start w-25 h-100 menu-header" tabindex="-1" id="offcanvas" data-bs-scroll="true" data-bs-keyboard="true" data-bs-backdrop="false" >
             <div className="offcanvas-body px-0 menu-body">
-                <ul className="navbar-nav nav-pills d-inline mb-sm-auto mb-0 align-items-start container-xl" id="menu">
+                <ul className="navbar-nav nav-pills d-inline mb-sm-auto mb-0 align-items-start container-md" id="menu">
                     <div className='row'>
                     
                     <li className= "nav-item col">
