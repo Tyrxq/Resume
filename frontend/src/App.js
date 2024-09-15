@@ -16,7 +16,7 @@ function App() {
     <div className="App">
       <Router>
         <Sidebar/>
-       
+        <SidebarButton/>
        
         <Routes>
           <Route path="/" element={<Home/>} />
