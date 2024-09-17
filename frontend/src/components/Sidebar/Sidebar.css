@@ -1,16 +1,38 @@
+@property --a{
+    syntax: '<percentage>'; 
+    inherits: false;
+    initial-value: 23%;
+}
+
 .sidebar{
     z-index: 1999;
 }
 
 .menu-body{
-    background: linear-gradient(45deg,rgba(0, 0, 0, .85),rgba(65, 105, 225, .86) 45%,rgba(255, 255, 255, 0.2) 20%) !important;
+    background: linear-gradient(45deg,rgba(65, 105, 225, .86),rgba(0, 0, 0, .85) var(--a),rgba(255, 255, 255, 0.2) 20%) !important;
     box-shadow: 0 0px 30px rgba(0, 0, 0, 0.1)!important;
     backdrop-filter: blur(5px)!important;
     -webkit-backdrop-filter: blur(5px)!important;
-    
+    transition: --a 0.5s;
     z-index: 1;
     min-width: 120px;
     overflow: hidden;
+}
+
+.home-link{
+    --a:23%
+}
+
+.resume-link{
+    --a:45%
+}
+
+.portfolio-link{
+    --a:64%
+}
+
+.contact-link{
+    --a:88%
 }
 
 .menu-header{
@@ -25,7 +47,7 @@
 }
 
 .menu-links{
-    color:#d7ba86 !important
+    color:rgba(255, 255, 255,)!important;
 }
 
 .ul-body{
@@ -35,10 +57,16 @@
 }
 
 .active-link{
-    background-color: #d7ba86 !important;
-    color: white!important;
+    background-color: none;
+    color:#d7ba86!important;
     width: 100%;
+    font-weight: bold;
     
+}
+
+.absorbed-link{
+    color:rgba(255, 255, 255, 0.8)!important;
+
 }
 
 
@@ -49,8 +77,33 @@
 }
 
 @media (max-width: 768px) {
+    .absorbed-link{
+        color:rgba(0, 0, 0, 0.8)!important;
+    
+    }
     .rounded-pill{
         border-radius: 0px !important;
      
+    }
+    .active-link{
+        background-color:#d7ba86;
+        color: white!important;
+        width: 100%;
+        
+    }
+    .home-link{
+        --a:20%
+    }
+    
+    .resume-link{
+        --a:35%
+    }
+    
+    .portfolio-link{
+        --a:50%
+    }
+    
+    .contact-link{
+        --a:65%
     }
 }

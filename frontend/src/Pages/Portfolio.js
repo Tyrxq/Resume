@@ -2,7 +2,7 @@ import React from 'react'
 
 const Portfolio = () => {
   return (
-    <div className="container-fluid">
+    <div className="container-fluid pt-5">
     <div className="row">
         <div className="col min-vh-100 p-4">
             

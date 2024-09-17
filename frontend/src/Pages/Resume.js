@@ -2,7 +2,7 @@ import React from 'react'
 
 const Resume = () => {
   return (
-    <div className="container-fluid">
+    <div className="container-fluid pt-5">
         <div className="row">
             <div className="col min-vh-100 p-4">
                 <h3>Resume...</h3>
