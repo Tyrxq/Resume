@@ -62,6 +62,10 @@ const Sidebar = () => {
     <nav className='navbar fixed-top navbar-expand-md sidebar'> 
            
         <div className="offcanvas offcanvas-start w-25 h-100 menu-header rounded-pill" tabindex="-1" id="offcanvas" data-bs-scroll="true" data-bs-keyboard="true" data-bs-backdrop="false" >
+            <div class="offcanvas-header justify-content-end">
+                <button type="button" class="btn-close btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            
             <div className={`offcanvas-body px-0 menu-body ${activeLinkPC()} rounded-pill`}>
                 <ul className="navbar-nav nav-pills d-inline mb-sm-auto mb-0 align-items-start container-md" id="menu ">
                     <div className='row'>  
