@@ -1,7 +1,7 @@
 @property --a{
     syntax: '<percentage>'; 
     inherits: false;
-    initial-value: 23%;
+    initial-value: 20%;
 }
 
 .sidebar{
@@ -20,19 +20,19 @@
 }
 
 .home-link{
-    --a:23%
+    --a:20%
 }
 
 .resume-link{
-    --a:45%
+    --a:43%
 }
 
 .portfolio-link{
-    --a:64%
+    --a:65%
 }
 
 .contact-link{
-    --a:88%
+    --a:87%
 }
 
 .menu-header{
