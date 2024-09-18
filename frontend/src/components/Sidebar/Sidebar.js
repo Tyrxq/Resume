@@ -31,7 +31,8 @@ const Sidebar = () => {
         word:'Contact'
     }
     ];
-   const [activeLink,setActiveLink] = useState(0);
+   const linkLocation = {'/':0, '/resume':1,'/portfolio':2,'/contact':3 }
+   const [activeLink,setActiveLink] = useState(linkLocation[location.pathname]);
    
    const linkComponent = 
     links.map(({id,link,icon,word}) => { 
@@ -55,9 +56,6 @@ const Sidebar = () => {
     const locationName = location.pathname.slice(1);
     return locationName === '/'? 'home-link' :`${locationName}-link`; 
    } 
-  //create a new css class maxing the length of the sidebar
-  //create break points for backround linear gradient 
-  //rework sidebar-button
   return (
     <nav className='navbar fixed-top navbar-expand-md sidebar'> 
            
