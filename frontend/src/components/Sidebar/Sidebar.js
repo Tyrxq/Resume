@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-
-import { Link, useLocation } from 'react-router-dom'
+import {HashLink} from 'react-router-hash-link';
+import { Link, useLocation} from 'react-router-dom'
 import './Sidebar.css';
 
 const Sidebar = () => {
@@ -8,52 +8,52 @@ const Sidebar = () => {
    const links = [
     {
         id:0,
-        link:'/',
+        link:'/#home',
         icon:'house',
         word:'Home'
     },
     {
         id:1,
-        link:'/resume',
+        link:'/#resume',
         icon:'news',
         word:'Resume'
     },
     {
         id:2,
-        link:'/portfolio',
+        link:'/#portfolio',
         icon:'folder',
         word:'Portfolio'
     },
     {
         id:3,
-        link:'/contact',
+        link:'/#contact',
         icon:'contact_page',
         word:'Contact'
     }
     ];
-   const linkLocation = {'/':0, '/resume':1,'/portfolio':2,'/contact':3 }
-   const [activeLink,setActiveLink] = useState(linkLocation[location.pathname]);
+   const linkLocation = {'/':0, '/#resume':1,'/#portfolio':2,'/#contact':3 }
+   const [activeLink,setActiveLink] = useState(linkLocation[location.pathname + location.hash]);
    
    const linkComponent = 
     links.map(({id,link,icon,word}) => { 
         const cssCLasses = activeLink > id ? `${activeLinkMobile(link)} absorbed-link` : `${activeLinkMobile(link)}`;
         return(
             <li className= "nav-item col" key={id}>
-                <Link to={link} className= {cssCLasses} onClick={() =>setActiveLink(id)}>
+                <HashLink to={link} className= {cssCLasses} onClick={() =>setActiveLink(id)}>
                     <span class=" fs-10 material-symbols-outlined ms-1 ">{icon}</span>
                     <span className="ms-1  d-sm-inline">{word}</span>
-                </Link>
+                </HashLink>
             </li>
         )
     });                     
     
 
    function activeLinkMobile(link){
-    return location.pathname === link ? "nav-link text-truncate d-inline-flex menu-links active-link": "nav-link text-truncate d-inline-flex menu-links";
+    return location.pathname + location.hash === link ? "nav-link text-truncate d-inline-flex menu-links active-link": "nav-link text-truncate d-inline-flex menu-links";
    } 
 
    function activeLinkPC(){
-    const locationName = location.pathname.slice(1);
+    const locationName = location.hash.slice(1);
     return locationName === '/'? 'home-link' :`${locationName}-link`; 
    } 
   return (
@@ -65,8 +65,8 @@ const Sidebar = () => {
             </div>
             
             <div className={`offcanvas-body px-0 menu-body ${activeLinkPC()} rounded-pill`}>
-                <ul className="navbar-nav nav-pills d-inline mb-sm-auto mb-0 align-items-start container-md" id="menu ">
-                    <div className='row'>  
+                <ul className="navbar-nav nav-pills d-inline mb-sm-auto mb-0 align-items-start container-fluid ps-4" id="menu ">
+                    <div className='row '>  
                         {linkComponent} 
                     </div>
                 </ul>
