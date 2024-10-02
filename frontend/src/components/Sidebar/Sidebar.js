@@ -6,9 +6,10 @@ import './Sidebar.css';
 const Sidebar = ({homeRef,contactRef,portfolioRef,resumeRef}) => {
    const location = useLocation();
    
-   const linkLocation = {'/':0, '/#resume':1,'/#portfolio':2,'/#contact':3 }
+   const linkLocation = {'/#home':0, '/#resume':1,'/#portfolio':2,'/#contact':3 }
    
    const [activeLink,setActiveLink] = useState(linkLocation[location.pathname + location.hash]);
+   const [userScrolling,setUserScrolling] = useState(true);
 
   
 
@@ -17,22 +18,28 @@ const Sidebar = ({homeRef,contactRef,portfolioRef,resumeRef}) => {
    const [navbarScroll,setNavbarScroll] = useState(locationName === '/'? 'home-link' :`${locationName}-link`);
 
     useEffect( () => {
-      // if scrolling
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-              //console.log(entry.isIntersecting);
-              if(entry.isIntersecting){
-                //navigate(`${location.pathname}#${entry.target.id}`);
-                setActiveLink(linkLocation[`${location.pathname}#${entry.target.id}`]);
-                setNavbarScroll(`${entry.target.id}-link`);
-              }
-              
-            },
-            {
-              threshold:1 // Adjust this value to control when the element is considered visible
-            }
-          );
       
+      const timeoutId = setTimeout(() => {
+        setUserScrolling(true);
+      }, 500); 
+
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          //console.log(entry.isIntersecting);
+          if(entry.isIntersecting){
+            //navigate(`${location.pathname}#${entry.target.id}`);
+            setActiveLink(linkLocation[`${location.pathname}#${entry.target.id}`]);
+            setNavbarScroll(`${entry.target.id}-link`);
+          }
+          
+        },
+        {
+          threshold:1 // Adjust this value to control when the element is considered visible
+        }
+      );
+      // if scrolling
+      const handleScroll = () => {
+        if(userScrolling){
           if (homeRef.current) {
             observer.observe(homeRef.current);
           }
@@ -45,21 +52,31 @@ const Sidebar = ({homeRef,contactRef,portfolioRef,resumeRef}) => {
           if(resumeRef.current){
             observer.observe(resumeRef.current);
           }
-          
+        }
+      };
+
+      window.addEventListener('scroll', handleScroll);
+
+      return () => {
+        clearTimeout(timeoutId);
+        window.removeEventListener('scroll', handleScroll);
+        
+        if (homeRef.current) {    
+          observer.unobserve(homeRef.current);
+        }
+        if(contactRef.current){
+            observer.unobserve(contactRef.current);
+        }
+        if(portfolioRef.current){
+          observer.unobserve(portfolioRef.current);
+        }
+        if(resumeRef.current){
+          observer.unobserve(resumeRef.current);
+        }
+      };
 
 
-      
-          return () => {
-            if (homeRef.current) {    
-              observer.unobserve(homeRef.current);
-            }
-            if(contactRef.current){
-                observer.unobserve(contactRef.current);
-              }
-        };
-
-
-    },)
+    },[navbarScroll,contactRef,homeRef,userScrolling,portfolioRef,resumeRef,linkLocation,location])
 
 
    const links = [
@@ -93,6 +110,7 @@ const Sidebar = ({homeRef,contactRef,portfolioRef,resumeRef}) => {
    const linkComponent = 
     links.map(({id,link,icon,word}) => { 
         const cssCLasses = activeLink > id ? `${activeLinkMobile(link)} absorbed-link` : `${activeLinkMobile(link)}`;
+     
         return(
             <li className= "nav-item col" key={id}>
                 <HashLink to={link} className= {cssCLasses} onClick={() =>scrollNavbar(link,id)}>
@@ -105,7 +123,7 @@ const Sidebar = ({homeRef,contactRef,portfolioRef,resumeRef}) => {
     
 
    function activeLinkMobile(link){
-    return location.pathname + location.hash === link ? "nav-link text-truncate d-inline-flex menu-links active-link": "nav-link text-truncate d-inline-flex menu-links";
+    return links[activeLink].link === link ? "nav-link text-truncate d-inline-flex menu-links active-link": "nav-link text-truncate d-inline-flex menu-links";
    } 
 
   //  function activeLinkPC(){
@@ -117,6 +135,7 @@ const Sidebar = ({homeRef,contactRef,portfolioRef,resumeRef}) => {
     const linkHash = link.slice(2);
     setActiveLink(id);
     setNavbarScroll(`${linkHash}-link`)
+    setUserScrolling(false);
    }
 
   return (
