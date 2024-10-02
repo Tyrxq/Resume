@@ -44,17 +44,21 @@ const Sidebar = ({homeRef,contactRef,portfolioRef,resumeRef}) => {
    const [navbarScroll,setNavbarScroll] = useState(locationName === ''? 'home-link' :`${locationName}-link`);
 
     useEffect( () => {
-      
+
+      const linkLocations = {'/':0,'/#home':0, '/#resume':1,'/#portfolio':2,'/#contact':3 }
+      let observerRefValues = [null,null,null,null]; 
+
       const timeoutId = setTimeout(() => {
         setUserScrolling(true);
       }, 500); 
 
       const observer = new IntersectionObserver(
         ([entry]) => {
-          //console.log(entry.isIntersecting);
+          //if element comes into viw of screen
           if(entry.isIntersecting){
-            //navigate(`${location.pathname}#${entry.target.id}`);
-            setActiveLink(linkLocation[`${location.pathname}#${entry.target.id}`]);
+            //sets the the id number of the active link by the targeted element's id
+            setActiveLink(linkLocations[`${location.pathname}#${entry.target.id}`]);
+            //sets the css class for the navbar scroll by the targeted element's id
             setNavbarScroll(`${entry.target.id}-link`);
           }
           
@@ -65,18 +69,23 @@ const Sidebar = ({homeRef,contactRef,portfolioRef,resumeRef}) => {
       );
       // if scrolling
       const handleScroll = () => {
+       
         if(userScrolling){
           if (homeRef.current) {
             observer.observe(homeRef.current);
+            observerRefValues[0] = homeRef.current
           }
           if(contactRef.current){
             observer.observe(contactRef.current);
+            observerRefValues[1] = contactRef.current
           }
           if(portfolioRef.current){
             observer.observe(portfolioRef.current);
+            observerRefValues[2] = portfolioRef.current
           }
           if(resumeRef.current){
             observer.observe(resumeRef.current);
+            observerRefValues[3] = resumeRef.current
           }
         }
       };
@@ -87,22 +96,22 @@ const Sidebar = ({homeRef,contactRef,portfolioRef,resumeRef}) => {
         clearTimeout(timeoutId);
         window.removeEventListener('scroll', handleScroll);
         
-        if (homeRef.current) {    
-          observer.unobserve(homeRef.current);
+        if (observerRefValues[0]) {    
+          observer.unobserve(observerRefValues[0]);
         }
-        if(contactRef.current){
-            observer.unobserve(contactRef.current);
+        if(observerRefValues[1]){
+            observer.unobserve(observerRefValues[1]);
         }
-        if(portfolioRef.current){
-          observer.unobserve(portfolioRef.current);
+        if(observerRefValues[2]){
+          observer.unobserve(observerRefValues[2]);
         }
-        if(resumeRef.current){
-          observer.unobserve(resumeRef.current);
+        if(observerRefValues[3]){
+          observer.unobserve(observerRefValues[3]);
         }
       };
 
 
-    },[navbarScroll,contactRef,homeRef,userScrolling,portfolioRef,resumeRef,linkLocation,location])
+    },[navbarScroll,contactRef,homeRef,userScrolling,portfolioRef,resumeRef,location])
 
 
  
@@ -127,11 +136,6 @@ const Sidebar = ({homeRef,contactRef,portfolioRef,resumeRef}) => {
     return links[activeLink].link === link ? "nav-link text-truncate d-inline-flex menu-links active-link": "nav-link text-truncate d-inline-flex menu-links";
    } 
 
-  //  function activeLinkPC(){
-  //   const locationName = location.hash.slice(1);
-  //   return locationName === '/'? 'home-link' :`${locationName}-link`; 
-  //  } 
-   
    function scrollNavbar(link,id){
     const linkHash = link.slice(2);
     setActiveLink(id);
