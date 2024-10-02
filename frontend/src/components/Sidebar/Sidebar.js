@@ -6,16 +6,42 @@ import './Sidebar.css';
 const Sidebar = ({homeRef,contactRef,portfolioRef,resumeRef}) => {
    const location = useLocation();
    
-   const linkLocation = {'/#home':0, '/#resume':1,'/#portfolio':2,'/#contact':3 }
+   const linkLocation = {'/':0,'/#home':0, '/#resume':1,'/#portfolio':2,'/#contact':3 }
    
    const [activeLink,setActiveLink] = useState(linkLocation[location.pathname + location.hash]);
    const [userScrolling,setUserScrolling] = useState(true);
+   const links = [
+    {
+        id:0,
+        link:'/#home',
+        icon:'house',
+        word:'Home'
+    },
+    {
+        id:1,
+        link:'/#resume',
+        icon:'news',
+        word:'Resume'
+    },
+    {
+        id:2,
+        link:'/#portfolio',
+        icon:'folder',
+        word:'Portfolio'
+    },
+    {
+        id:3,
+        link:'/#contact',
+        icon:'contact_page',
+        word:'Contact'
+    }
+    ];
 
   
 
    const locationName = location.hash.slice(1);
    
-   const [navbarScroll,setNavbarScroll] = useState(locationName === '/'? 'home-link' :`${locationName}-link`);
+   const [navbarScroll,setNavbarScroll] = useState(locationName === ''? 'home-link' :`${locationName}-link`);
 
     useEffect( () => {
       
@@ -79,32 +105,7 @@ const Sidebar = ({homeRef,contactRef,portfolioRef,resumeRef}) => {
     },[navbarScroll,contactRef,homeRef,userScrolling,portfolioRef,resumeRef,linkLocation,location])
 
 
-   const links = [
-    {
-        id:0,
-        link:'/#home',
-        icon:'house',
-        word:'Home'
-    },
-    {
-        id:1,
-        link:'/#resume',
-        icon:'news',
-        word:'Resume'
-    },
-    {
-        id:2,
-        link:'/#portfolio',
-        icon:'folder',
-        word:'Portfolio'
-    },
-    {
-        id:3,
-        link:'/#contact',
-        icon:'contact_page',
-        word:'Contact'
-    }
-    ];
+ 
    
    
    const linkComponent = 
