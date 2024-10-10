@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import {HashLink} from 'react-router-hash-link';
 import {useLocation} from 'react-router-dom'
-import './Sidebar.css';
+import './Navbar.css';
 
 const Sidebar = ({homeRef,contactRef,portfolioRef,resumeRef}) => {
    const location = useLocation();
