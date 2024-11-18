@@ -36,7 +36,14 @@ const Sidebar = ({homeRef,contactRef,portfolioRef,resumeRef}) => {
         word:'Contact'
     }
     ];
-
+    const scrollWithOffset = (el) => {
+      const yCoordinate = el.getBoundingClientRect().top + window.scrollY;
+      let yOffset = 0; 
+      if(el.id === 'home'){
+       yOffset = -1000
+      }
+      window.scrollTo({ top: yCoordinate + yOffset, behavior: 'smooth' }); 
+    }
   
 
    const locationName = location.hash.slice(1);
@@ -123,7 +130,7 @@ const Sidebar = ({homeRef,contactRef,portfolioRef,resumeRef}) => {
      
         return(
             <li className= "nav-item col" key={id}>
-                <HashLink to={link} className= {cssCLasses} onClick={() =>scrollNavbar(link,id)}>
+                <HashLink to={link} className= {cssCLasses} onClick={() =>scrollNavbar(link,id)} scroll={el => scrollWithOffset(el)}>
                     <span class=" fs-10 material-symbols-outlined ms-1 ">{icon}</span>
                     <span className="ms-1  d-sm-inline">{word}</span>
                 </HashLink>
