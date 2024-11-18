@@ -4,11 +4,11 @@ import Home from '../components/Home/Home';
 
 const Resume = ({contactRef,portfolioRef,homeRef,resumeRef}) => {
   return (
-    <div id='home' className="container-fluid pt-5">
+    <div>
         <div className="row">
-            <div className="col min-vh-100 p-4">
+            <div className="col min-vh-100 ">
               <Home homeRef={homeRef}/>
-                <div ref={resumeRef} id='resume'>
+                <div ref={resumeRef} id='resume' className='pt-5'>
                   <h3>Resume</h3>
                 </div>
                 <p>Sriracha biodiesel taxidermy organic post-ironic, Intelligentsia salvia mustache 90's code editing brunch. Butcher polaroid VHS art party, hashtag Brooklyn deep v PBR narwhal sustainable mixtape swag wolf squid tote bag. Tote bag cronut semiotics, raw denim deep v taxidermy messenger bag. Tofu YOLO Etsy, direct trade ethical Odd Future jean shorts paleo. Forage Shoreditch tousled aesthetic irony, street art organic Bushwick artisan cliche semiotics ugh synth chillwave meditation. Shabby chic lomo plaid vinyl chambray Vice. Vice sustainable cardigan, Williamsburg master cleanse hella DIY 90's blog.</p>
