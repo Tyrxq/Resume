@@ -7,6 +7,15 @@ import {  OrbitControls } from '@react-three/drei';
 const Cube = ({position, color, rotate, setRotate,opacity}) => {
   const meshRef = useRef(null);
   const [currentRotation, setCurrentRotation] = useState(0);
+
+  const rotateCube = (startRotation,degrees) => {
+    if(startRotation){
+      meshRef.current.rotation.x += Math.PI/(180 * degrees) ;
+      meshRef.current.rotation.z -= Math.PI/(180 * degrees) ;
+      setCurrentRotation(currentRotation + degrees);
+    }
+    
+  } 
   
 
   useFrame(() => {
@@ -14,17 +23,11 @@ const Cube = ({position, color, rotate, setRotate,opacity}) => {
       return;
     }
   if(rotate){
-    //const delta = meshRef.current.position.y + 0.0001;
-    //console.log(meshRef.current.rotation.x);
-    meshRef.current.rotation.x += Math.PI/90;
-    setCurrentRotation(currentRotation+2);
-    //console.log(currentRotation % (Math.PI/2));
-    //meshRef.current.rotation.y += 0.01;
-    //meshRef.current.position.y = 7 * Math.sin(delta) + 3
+    rotateCube(rotate,1);
   }
-  if(currentRotation % 90 === 0 ){
+  if(currentRotation % 180 === 0 ){
     setRotate(false);
-  }
+  }     
    
   });
 
@@ -65,7 +68,7 @@ const Home = () => {
           <pointLight position={[10,0,30]}/>
           <OrbitControls/>
           <group>
-            <CubeMatrix position={[0,0,0]} space={2} color={'rgba(255, 255, 255)'} opacity={.2}/>
+            <CubeMatrix position={[0,0,0]} space={4} color={'rgba(255, 255, 255)'} opacity={.2}/>
           </group>
           
        </Canvas>
