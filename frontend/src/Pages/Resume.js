@@ -5,7 +5,7 @@ import Home from '../components/Home/Home';
 const Resume = ({contactRef,portfolioRef,homeRef,resumeRef}) => {
   return (
     <div>
-        <div className="row">
+        <div className="row" id="app">
             <div className="col min-vh-100 ">
               <Home homeRef={homeRef}/>
                 <div ref={resumeRef} id='resume' className='pt-5'>

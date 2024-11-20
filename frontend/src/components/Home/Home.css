@@ -1,4 +1,57 @@
 .home{
     width: auto;
-    height: 120vh;
+    height: 100vh;
+}
+.pic-container{
+    height: 80vh;
+}
+#pic{
+    width: 200px;
+    height: 200px;
+    position: relative;
+
+    /* Make the background image cover the area of the <div>, and clip the excess */
+    border-radius: 50%;
+  
+}
+
+.container .trans-card
+{
+    justify-self: center;
+    width:40vh;
+    height:40vh;
+    box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+    border-radius:20%;
+    background: rgba(255, 252, 252, 0.2);
+    overflow: hidden;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    border-top: 2px solid rgba(255, 255, 255, 0.5);
+    border-left: 3px solid rgba(255, 255, 255, 0.5);
+    backdrop-filter:blur(1px);
+}
+
+.container .card2{
+    position: relative;
+    left:8vw;
+    bottom: 35vh;
+    box-shadow: 0px 0px 50px;
+    z-index: -1
+}
+
+.container .card3{
+    position: relative;
+    box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+    left:15vw;
+    bottom: 70vh;
+    z-index: -2
+}
+
+.container .card4{
+    position: relative;
+    left:22vw;
+    bottom: 105vh;
+    z-index: -3;
+    box-shadow: 0px 0px 0px;
 }

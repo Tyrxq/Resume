@@ -71,6 +71,7 @@ const Sidebar = ({homeRef,contactRef,portfolioRef,resumeRef}) => {
           
         },
         {
+          route:document.querySelector("#app"),
           threshold:1 // Adjust this value to control when the element is considered visible
         }
       );
