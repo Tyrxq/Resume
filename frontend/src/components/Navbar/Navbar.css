@@ -96,14 +96,14 @@
     }
     
     .resume-link{
-        --a:30vh
+        --a:25vh
     }
     
     .portfolio-link{
-        --a:40vh
+        --a:30vh
     }
     
     .contact-link{
-        --a:50vh
+        --a:40vh
     }
 }

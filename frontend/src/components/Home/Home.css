@@ -18,6 +18,7 @@
 .container .trans-card
 {
     position: relative;
+
     width:40vh;
     height:40vh;
     box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
@@ -50,7 +51,7 @@
 .container .card2{
     position: relative;
     left:8vw;
-    bottom: 26vh;
+    bottom: 24vh;
     box-shadow: 0px 0px 50px  rgba(0, 0, 0, 0.3);
     z-index: 2
 }
@@ -59,14 +60,14 @@
     position: relative;
     box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.2);
     left:17vw;
-    bottom: 56vh;
+    bottom: 54vh;
     z-index: 1
 }
 
 .container .card4{
     position: relative;
     left:27vw;
-    top: 17vh;
+    top: 19vh;
     z-index: -1;
     box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.1);
 }
