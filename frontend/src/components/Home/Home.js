@@ -2,7 +2,7 @@ import React from 'react';
 import './Home.css';
 import myImage from "../Assets/Grad2.jpg";
 import VanillaTilt from 'vanilla-tilt';
-import  { useEffect, useRef, useState } from 'react';
+import  { useEffect, useRef,} from 'react';
 
 const Home = ({homeRef}) => {
 
@@ -17,13 +17,13 @@ const Home = ({homeRef}) => {
     const options = {
       reverse:true,
       speed: 200,
-      max: 10,
+      max: 5,
       glare:true
     };
     const options2 = {
       reverse:true,
       speed: 200,
-      max: 15
+      max: 5
     };
   
     VanillaTilt.init(bigTilt.current,options)
@@ -44,8 +44,8 @@ const Home = ({homeRef}) => {
         <h2  className='display-3'>Hello, I am </h2>
         <h2 className='display-2'>Tyriq Dominguez</h2>
       </div>
-      <div   className ='container pt-5 profile'>
-        <div ref={bigTilt}>
+      <div   className ='container pt-5 '>
+        <div ref={bigTilt} className="profile">
           <div ref={tilt} className = 'trans-card' >
             <img id="pic" src={myImage} alt="Tyriq's Headshot"/> 
           </div>
