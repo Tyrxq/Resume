@@ -25,11 +25,13 @@ const Home = ({homeRef}) => {
       speed: 200,
       max: 5
     };
-  
+   if(window.innerWidth > 1025 ){
     VanillaTilt.init(bigTilt.current,options)
     VanillaTilt.init(tilt.current, options2);
     VanillaTilt.init(tilt2.current, options2);
     VanillaTilt.init(tilt3.current, options2);
+   }
+   
   }, []);
 
 
