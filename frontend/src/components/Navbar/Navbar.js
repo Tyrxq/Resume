@@ -27,7 +27,7 @@ const Sidebar = ({homeRef,contactRef,portfolioRef,resumeRef}) => {
         id:2,
         link:'/#portfolio',
         icon:'folder',
-        word:'Portfolio'
+        word:'Projects'
     },
     {
         id:3,
