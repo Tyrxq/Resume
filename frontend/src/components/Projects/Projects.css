@@ -1,3 +1,7 @@
 .project-component{
-    margin-bottom: 100vh;
+    margin-bottom: 0vh;
+}
+
+.project p{
+    display: flex;
 }
