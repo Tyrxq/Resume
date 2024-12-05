@@ -5,3 +5,13 @@
 .project p{
     display: flex;
 }
+
+a {
+    color: black;
+    background-color: transparent;
+    font-size: 25px;
+}
+
+p{
+    font-size: 18px;
+}

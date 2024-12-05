@@ -13,11 +13,20 @@ const Projects = ({projectsRef}) => {
         <div className='project pt-5'>
           <a className='w-50 h-75' href="https://jojostandarrow.com" target='_blank' rel='noreferrer'>
             <span>
-              <img className='border w-50 h-50'  src={myImage} alt="Jojo Stand Arrow Project"/> 
+              <img className='border border-dark w-75 h-75'  src={myImage} alt="Jojo Stand Arrow Project"/> 
             </span>
           </a>
+          <div className='pt-3'>
+            <a href="https://jojostandarrow.com" target='_blank' rel='noreferrer'>
+              jojostandarrow.com
+            </a>
+            <span className="material-symbols-outlined pt-5">
+              open_in_new
+            </span>
+          </div>
+          
           <div className='d-flex justify-content-center p-5'>
-            <p className='pt-5'>
+            <p>
             This project is built using Next.js and the OpenAI API, combining cutting-edge technology to explore the DALL-E and ChatGPT 4 models within one of the latest JavaScript frameworks. Inspired by the iconic anime series JoJo's Bizarre Adventure, 
             it draws from the concept of characters gaining powers manifested as "Stands" when pierced by a mystical arrow. These Stands embody their users' willpower and personalities.
             My website emulates this process by allowing users to input details about themselves. Using this information, the site generates personalized descriptions and images of their unique Stand.
