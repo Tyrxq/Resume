@@ -45,14 +45,14 @@ const Contact = ({contactRef}) => {
       </div>
       <hr className='line'></hr>
       <div className='pt-5'>
-        <h5  className='display-5'>Thank you for viewing my website!</h5>
+        <h5  className='display-5'>Feel free to leave a message!</h5>
       </div>
       <form ref={form} onSubmit={sendEmail}>
         <div class="input-group mb-3 mt-5 d-flex justify-content-center">
           <input className='w-50 d-flex' type="email" name='email' placeholder="Email Address" aria-label="Username" aria-describedby="basic-addon1" required/>
         </div>
         <div className='d-flex justify-content-center pb-2 w-100'>
-          <textarea className='w-75 form-control' name='message' id="exampleFormControlTextarea1" rows="3" placeholder="Feel free to leave a message!" required></textarea>
+          <textarea className='w-75 form-control' name='message' id="exampleFormControlTextarea1" rows="3" placeholder="Message" required></textarea>
         </div>
         {showToast && <div
           aria-live="polite"
