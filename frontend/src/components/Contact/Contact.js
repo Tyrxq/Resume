@@ -1,11 +1,14 @@
 import  React, { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import './Contact.css'
+import Toast from 'react-bootstrap/Toast';
+import ToastContainer from 'react-bootstrap/ToastContainer';
 
 const Contact = ({contactRef}) => {
 
   const form = useRef();
   const [isLoading,setIsLoading] =useState(false);
+  const [showToast,setShowToast] = useState(false);
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -19,10 +22,12 @@ const Contact = ({contactRef}) => {
         () => {
           console.log('SUCCESS!');
           setIsLoading(false);
+          setShowToast(true);
         },
         (error) => {
           console.log('FAILED...', error.text);
           setIsLoading(false);
+          setShowToast(true);
         },
       );
   };
@@ -45,6 +50,26 @@ const Contact = ({contactRef}) => {
         <div className='d-flex justify-content-center pb-2 w-100'>
           <textarea className='w-75 form-control' name='message' id="exampleFormControlTextarea1" rows="3" placeholder="Feel free to leave a message!" required></textarea>
         </div>
+        {showToast && <div
+          aria-live="polite"
+          aria-atomic="true"
+          className="position-relative"
+          style={{ minHeight: '100px' }}
+        >
+          <ToastContainer
+            className="p-3"
+            position={'middle-center'}
+            style={{ zIndex: 1 }}
+          >
+            <Toast className='d-flex' bg='success' onClose={() => setShowToast(false)} show={showToast} autohide
+              delay={3000}>
+              <Toast.Body className={'text-white'}>
+                Message successful!
+              </Toast.Body>
+              <button type="button" class="btn-close btn-close-white me-2 m-auto ml-4" data-bs-dismiss="toast" aria-label="Close" onClick={() => setShowToast(false)}></button>
+            </Toast> 
+          </ToastContainer> 
+        </div> }
         <div className='pb-3'>
           {isLoading ? 
             <button class="btn btn-primary " type="button" disabled>
@@ -57,7 +82,7 @@ const Contact = ({contactRef}) => {
           }
         </div>
       </form>
-        
+     
       
     </div>
   )
