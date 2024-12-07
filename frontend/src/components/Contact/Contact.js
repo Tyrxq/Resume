@@ -9,6 +9,7 @@ const Contact = ({contactRef}) => {
   const form = useRef();
   const [isLoading,setIsLoading] =useState(false);
   const [showToast,setShowToast] = useState(false);
+  const [delivered,setDelivered] = useState(false);
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -21,11 +22,14 @@ const Contact = ({contactRef}) => {
       .then(
         () => {
           console.log('SUCCESS!');
+          setDelivered(true);
           setIsLoading(false);
           setShowToast(true);
+         
         },
         (error) => {
           console.log('FAILED...', error.text);
+          setDelivered(false);
           setIsLoading(false);
           setShowToast(true);
         },
@@ -61,10 +65,10 @@ const Contact = ({contactRef}) => {
             position={'middle-center'}
             style={{ zIndex: 1 }}
           >
-            <Toast className='d-flex' bg='success' onClose={() => setShowToast(false)} show={showToast} autohide
+            <Toast className='d-flex' bg={delivered ? 'success' : 'danger'} onClose={() => setShowToast(false)} show={showToast} autohide
               delay={3000}>
               <Toast.Body className={'text-white'}>
-                Message successful!
+                Message {delivered ? "Successful!" : "Failed!"}
               </Toast.Body>
               <button type="button" class="btn-close btn-close-white me-2 m-auto ml-4" data-bs-dismiss="toast" aria-label="Close" onClick={() => setShowToast(false)}></button>
             </Toast> 
