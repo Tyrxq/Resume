@@ -23,11 +23,11 @@
     --a:12vw
 }
 
-.resume-link{
+.experience-link{
     --a:31vw
 }
 
-.portfolio-link{
+.projects-link{
     --a:49vw
 }
 
@@ -95,11 +95,11 @@
         --a:20vh
     }
     
-    .resume-link{
+    .experience-link{
         --a:25vh
     }
     
-    .portfolio-link{
+    .projects-link{
         --a:30vh
     }
     

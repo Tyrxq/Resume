@@ -4,7 +4,7 @@ import './Experience.css'
 const Experience = ({experienceRef}) => {
   return (
     <div className='pt-5'>
-      <div ref={experienceRef} id='resume' className='px-5 d-flex justify-content-center'>
+      <div ref={experienceRef} id='experience' className='px-5 d-flex justify-content-center'>
         <h3 className='pt-5 display-2'>Experience</h3>
       </div>
       <hr className=' line'></hr>

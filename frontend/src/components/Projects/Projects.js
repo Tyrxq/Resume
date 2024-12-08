@@ -5,7 +5,7 @@ import myImage from "../Assets/Jojo_project_image.png";
 const Projects = ({projectsRef}) => {
   return (
     <div className='pt-5 project-component'>
-      <div ref={projectsRef} id='portfolio' className=' pt-5 px-5 d-flex justify-content-center'>
+      <div ref={projectsRef} id='projects' className=' pt-5 px-5 d-flex justify-content-center'>
         <h3 className='pt-2 display-2'>Projects</h3>
       </div>
       <hr/>

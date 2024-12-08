@@ -6,7 +6,7 @@ import './Navbar.css';
 const Sidebar = ({homeRef,contactRef,portfolioRef,resumeRef}) => {
    const location = useLocation();
    
-   const linkLocation = {'/':0,'/#home':0, '/#resume':1,'/#portfolio':2,'/#contact':3 }
+   const linkLocation = {'/':0,'/#home':0, '/#experience':1,'/#projects':2,'/#contact':3 }
    
    const [activeLink,setActiveLink] = useState(linkLocation[location.pathname + location.hash]);
    const [userScrolling,setUserScrolling] = useState(true);
@@ -19,13 +19,13 @@ const Sidebar = ({homeRef,contactRef,portfolioRef,resumeRef}) => {
     },
     {
         id:1,
-        link:'/#resume',
+        link:'/#experience',
         icon:'news',
-        word:'Experince'
+        word:'Experience'
     },
     {
         id:2,
-        link:'/#portfolio',
+        link:'/#projects',
         icon:'folder',
         word:'Projects'
     },
@@ -52,7 +52,7 @@ const Sidebar = ({homeRef,contactRef,portfolioRef,resumeRef}) => {
 
     useEffect( () => {
 
-      const linkLocations = {'/':0,'/#home':0, '/#resume':1,'/#portfolio':2,'/#contact':3 }
+      const linkLocations = {'/':0,'/#home':0, '/#experience':1,'/#projects':2,'/#contact':3 }
       let observerRefValues = [null,null,null,null]; 
 
       const timeoutId = setTimeout(() => {
