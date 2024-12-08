@@ -6,9 +6,12 @@ import './Navbar.css';
 const Sidebar = ({homeRef,contactRef,portfolioRef,resumeRef}) => {
    const location = useLocation();
    
-   const linkLocation = {'/':0,'/#home':0, '/#experience':1,'/#projects':2,'/#contact':3 }
+   const linkLocation = {'/':0,'/#home':0, '/#experience':1,'/#projects':2,'/#contact':3 };
+   const handleScrollAfterRefresh = 'handleScrollAfterRefresh';
+   const linkAfterRefresh = sessionStorage.getItem(handleScrollAfterRefresh);
+
    
-   const [activeLink,setActiveLink] = useState(linkLocation[location.pathname + location.hash]);
+   const [activeLink,setActiveLink] = useState(linkLocation[location.pathname + (linkAfterRefresh ? '#'+ linkAfterRefresh : location.hash) ]);
    const [userScrolling,setUserScrolling] = useState(true);
    const links = [
     {
@@ -46,14 +49,14 @@ const Sidebar = ({homeRef,contactRef,portfolioRef,resumeRef}) => {
     }
   
 
-   const locationName = location.hash.slice(1);
+   const locationName = linkAfterRefresh ? linkAfterRefresh : location.hash.slice(1);
    
    const [navbarScroll,setNavbarScroll] = useState(locationName === ''? 'home-link' :`${locationName}-link`);
 
     useEffect( () => {
-
       const linkLocations = {'/':0,'/#home':0, '/#experience':1,'/#projects':2,'/#contact':3 }
       let observerRefValues = [null,null,null,null]; 
+     
 
       const timeoutId = setTimeout(() => {
         setUserScrolling(true);
@@ -67,6 +70,7 @@ const Sidebar = ({homeRef,contactRef,portfolioRef,resumeRef}) => {
             setActiveLink(linkLocations[`${location.pathname}#${entry.target.id}`]);
             //sets the css class for the navbar scroll by the targeted element's id
             setNavbarScroll(`${entry.target.id}-link`);
+            sessionStorage.setItem(handleScrollAfterRefresh,`${entry.target.id}`);
           }
           
         },
@@ -149,6 +153,7 @@ const Sidebar = ({homeRef,contactRef,portfolioRef,resumeRef}) => {
     setActiveLink(id);
     setNavbarScroll(`${linkHash}-link`)
     setUserScrolling(false);
+    sessionStorage.setItem(handleScrollAfterRefresh,linkHash);
    }
 
   return (
