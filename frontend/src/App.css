@@ -24,3 +24,15 @@
  
   color: #d7ba86 !important;
 }
+
+#contact, #resume, #portfolio{
+  font-family: "DM Serif Text", serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+#home{
+  font-family: "Spectral", serif;
+  font-weight: 200;
+  font-style: normal;
+}

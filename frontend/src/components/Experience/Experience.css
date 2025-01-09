@@ -23,3 +23,9 @@
     justify-content:start;
     text-align: start;
 }
+
+.experience h3, h4{
+    font-family: "Oxygen", serif;
+    font-weight: 300;
+    font-style: normal;
+}
