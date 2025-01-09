@@ -44,15 +44,12 @@ const Contact = ({contactRef}) => {
         <h3 className='pt-5 display-2'>Contact</h3>
       </div>
       <hr className='line'></hr>
-      <div className='pt-5'>
-        <h5  className='display-5'>Feel free to leave a message!</h5>
-      </div>
       <form ref={form} onSubmit={sendEmail}>
         <div class="input-group mb-3 mt-5 d-flex justify-content-center">
-          <input className='w-50 d-flex' type="email" name='email' placeholder="Email Address" aria-label="Username" aria-describedby="basic-addon1" required/>
+          <input className='w-50 d-flex input-contact' type="email" name='email' placeholder="Email Address" aria-label="Username" aria-describedby="basic-addon1" required/>
         </div>
         <div className='d-flex justify-content-center pb-2 w-100'>
-          <textarea className='w-75 form-control' name='message' id="exampleFormControlTextarea1" rows="3" placeholder="Message" required></textarea>
+          <textarea className='w-75 form-control input-contact' name='message' id="exampleFormControlTextarea1" rows="6" placeholder="Message" required></textarea>
         </div>
         {showToast && <div
           aria-live="polite"
@@ -81,7 +78,7 @@ const Contact = ({contactRef}) => {
                 Loading...
             </button>
              : 
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="button-29"><h5>Submit</h5></button>
             
           }
         </div>
