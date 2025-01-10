@@ -43,8 +43,8 @@ const Home = ({homeRef}) => {
   return (
     <div className='home pt-5'> 
       <div ref ={homeRef} id ='home' className='container pt-5'>
-        <h2  className='display-3'>Hello, I am </h2>
-        <h2 className='display-2'>Tyriq Dominguez</h2>
+        <h2  className='display-2'>Hello, I am </h2>
+        <h2 className='display-1'>Tyriq Dominguez</h2>
       </div>
       <div   className ='container pt-5 '>
         <div ref={bigTilt} className="profile">
